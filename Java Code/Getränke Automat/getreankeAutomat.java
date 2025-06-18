@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+public class getreankeAutomat{
+  public static void main(String[] args) {
+    Scanner intScanner = new Scanner(System.in);
+    
+    //Geldeinheiten, Getränke Reihenfolge usw.
+    double[] geld = {0.5, 1, 2, 5, 10, 20, 50, 100, 200, 500};
+    String[] getreankeArt ={"Cola", "Fanta", "Wasser"};
+    double[] preis = {1.5, 1.5, 1};
+    
+    System.out.println("was möchten sie trinken?");
+    System.out.println("1. Cola 1.50$");
+    System.out.println("2: Fanta 1.50$");
+    System.out.println("3: Wasser 1.00$");
+    
+    //Auswahl(-1 weil array immer mit  0 beginnt)
+    int getreank = intScanner.nextInt()-1;
+    
+    System.out.println("Wie Zahlen sie?");
+    
+    //printet Geldeinheiten
+    for (int i = 0; i < geld.length; i++) {
+      System.out.println((i + 1) + ". " + geld[i] + "$");
+    }
+    
+    //Geldeinheit Auswahl
+    int geldEinheit = intScanner.nextInt()-1;
+    
+    //wenn die ausgewählte geld weniger ist als der preis:
+    while(geld[geldEinheit]< preis[getreank]){
+      System.out.println("zu wenig Geld, mehr eingeben oder `0´drücken um zu verlassen");
+      double eingegebenesGeld = geld[geldEinheit];
+      int geldEinheitDazu = intScanner.nextInt()-1;
+      if(geldEinheitDazu == -1){
+        System.exit(0);
+      }
+      else{
+        eingegebenesGeld = eingegebenesGeld + geld[geldEinheitDazu];
+        geldEinheit++;
+        System.out.println(eingegebenesGeld);    
+        geldEinheit--;
+      }
+    }
+    
+    if(geld[geldEinheit]>preis[getreank]){
+      double rückgeld = geld[geldEinheit]-preis[getreank];
+      System.out.println("Rückgeld: "+ rückgeld);
+    }
+    System.out.println("Hier ist deine "+ getreankeArt[getreank]);    
+  }
+}
+
+// _  _  _
+//|C||F||W|
+

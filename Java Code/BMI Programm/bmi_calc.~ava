@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class bmi_calc {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    
+    System.out.println("Gewicht eingabe");
+    double gewicht = scanner.nextDouble();
+    
+    System.out.println("Größe eingabe");
+    double groesse = scanner.nextDouble();
+
+    double bmi;
+    
+    bmi = 10000 * gewicht / (groesse * groesse);
+    System.out.println(bmi);
+    
+    if (bmi < 18.5) {
+            System.out.println("Dein BMI ist zu niedrig (Untergewicht).");
+        } else if (bmi >= 18.5 && bmi < 25) {
+            System.out.println("Dein BMI ist im grünen Bereich (Normalgewicht).");
+        } else if (bmi >= 25 && bmi < 30) {
+            System.out.println("Dein BMI ist leicht erhöht (Übergewicht).");
+        } else {
+            System.out.println("Dein BMI ist zu hoch (Stark übergewichtig).");
+        }
+  }
+}

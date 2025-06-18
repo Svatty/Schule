@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class array2D{
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    
+    int x = scanner.nextInt();
+    int y = scanner.nextInt();
+    
+    //int j = 0;
+    
+    String tile = "/_/";
+    
+    String[][] map = new String[x][y];
+    
+    for(int i = 0; i < x; i++){
+      for (int j = 0; j < y; j++) {
+        map[i][j] = tile;
+        System.out.print(tile);
+      }
+      System.out.println();
+    }
+  }
+}
+

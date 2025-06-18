@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class FibunacciFolge{
+  public static void main(String[] args) { 
+    Scanner intScanner = new Scanner(System.in);
+    
+    System.out.println("\nBis zu welcher Zahl soll gerechnet werden?");
+    //zahl bis zu welcher gezählt wird
+    int zahl = intScanner.nextInt();
+    
+    
+    int neues_i = 0;
+    //einfach ein counter damit ich bis n
+    int i = 0;
+    while(i <= zahl){
+
+      if(i<2){
+        neues_i = 1;
+      }
+      int neue_zahl = i + neues_i;
+      i = neue_zahl;
+      i++;
+      
+      System.out.println(neue_zahl);
+    }
+  }
+}

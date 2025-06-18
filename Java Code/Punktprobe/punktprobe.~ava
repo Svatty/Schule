@@ -1,0 +1,66 @@
+import java.util.Scanner;
+
+public class punktprobe{
+  public static void main(String[] args) { 
+    Scanner intScanner = new Scanner(System.in);
+    
+    String graph;
+    
+    System.out.println("\nWie lautet die Steigung? (m)");
+    int m = intScanner.nextInt();
+    System.out.println("Wie leutet der y-Achsen Verschiebung? (b)");
+    int b = intScanner.nextInt();
+    if(b < 0){
+      System.out.println("\nFunktion lautet:");
+      System.out.println("f(x)=" + m + "x " + b);
+      graph = "f(x)" + m +"x" + b;
+    }
+    else{
+      System.out.println("\nFunktion lautet:");
+      System.out.println("f(x)=" + m + "x +" + b);
+      graph = "f(x)" + m +"x+" + b;  
+    }
+    
+    System.out.println("\nWie Lautet die x-Koordinate des Punktes");
+    int x = intScanner.nextInt();
+    System.out.println("\nWie Lautet die y-Koordinate des Punktes");
+    int y = intScanner.nextInt();
+    
+    System.out.println("\nVon wo bis wo soll der Graph gezeichnet werden?");
+    int limit = intScanner.nextInt();
+    System.out.println("\nWas ist das Inkre?");
+    int inkre = intScanner.nextInt();
+    
+    double fx = m * x + b;
+    
+    for (int i = -limit; i <= limit; i += inkre) {
+
+    // Ausgabe für jede Zeile
+    for (int j = -limit; j <= limit; j++) { 
+        // Berechnung des Funktionswertes f(x) = m * x + b
+        double fxCurrent = m * j + b;
+
+        // Vergleiche, ob der aktuelle x-Wert (j) nahe am Funktionswert (fx) liegt
+        if (Math.abs(i - fxCurrent)) {
+            System.out.print("x");
+        } else {
+            System.out.print(" ");
+        }
+    }
+
+    // Zeilenumbruch, damit die nächste Reihe darunter erscheint
+    System.out.println();
+}
+
+    
+    if(y == fx){
+      System.out.println("\nDer Punkt ("+ x +"|" + y + ") liegt auf dem Graphen "+ graph);
+    }
+    else if(fx > y){
+      System.out.println("\nDer Punkt ("+ x +"|" + y+ ") liegt unter dem Graphen "+ graph);
+    }
+    else{
+        System.out.println("\nDer Punkt ("+ x +"|" + y+ ") liegt über dem Graphen "+ graph);  
+    }
+  }
+}

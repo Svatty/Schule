@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class WhileLoop{
+  public static void main(String[] args) { 
+    Scanner intScanner = new Scanner(System.in);
+    
+    System.out.println("\nWie lautet deine Zahl");
+    int zahl = intScanner.nextInt();
+    
+    int i = 2;
+    while(i <= 20){
+      int n_fache = zahl * i;
+      System.out.println(i + ":" + n_fache);
+      i++;
+    }
+  }
+}
